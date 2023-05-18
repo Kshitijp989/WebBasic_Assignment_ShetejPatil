@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        const navBar = document.createElement('nav');
+        const ul = document.createElement('ul');
+
+        
+        navBar.style.background = 'black';
+        ul.style.listStyleType = 'none';
+        ul.style.display = 'flex';
+        ul.style.justifyContent = 'space-around';
+        navBar.style.paddingTop='5px';
+        navBar.style.paddingBottom='5px';
+
+        
+        const navLinks = [
+            { label: 'Home', url: '#' },
+            { label: 'Contact Us', url: '#' },
+            { label: 'SignUp', url: '#' },
+            { label: 'Sign In', url: '#' }
+        ];
+
+        for (let i = 0; i < navLinks.length; i++) {
+            const link = navLinks[i];
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.textContent = link.label;
+            a.href = link.url;
+            a.style.color = 'white';
+            li.appendChild(a);
+            ul.appendChild(li);
+        }
+
+    
+        navBar.appendChild(ul);
+
+        
+        document.body.insertBefore(navBar, document.body.firstChild);
+    </script>
+</body>
+</html>
