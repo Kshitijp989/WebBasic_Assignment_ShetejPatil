@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slideshow {
+          position: relative;
+          width: 100%;
+          height: 0;
+          padding-bottom: 56.26%;
+        }
+        
+        .slideshow img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0;
+          transition: opacity 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow">
+        <img src="web1.jpg" alt="Image 1" />
+        <img src="web2.jfif" alt="Image 2" />
+        <img src="web3.jpg" alt="Image 3" />
+        <img src="web4.jpg" alt="Image 4" />
+        <img src="web5.jpg" alt="Image 5" />
+        <img src="web6.jpg" alt="Image 6" />
+        <img src="web7.jpg" alt="Image 7" />
+        <img src="web8.jpg" alt="Image 8" />
+        <img src="web9.jpg" alt="Image 9" />
+        <img src="web10.jpg" alt="Image 10"/>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var slides = $('.slideshow img');
+            var currentSlide = 0;
+            var slideInterval = setInterval(nextSlide, 3000);
+
+            function nextSlide() {
+                slides.eq(currentSlide).css('opacity', 0);
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides.eq(currentSlide).css('opacity', 1);
+            }
+        });
+    </script>
+</body>
+</html>
