@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//         Implement following assignment using find, filter, map, reduce methods with arrow function(do not use annonymous functions)
+
+// Consider following Book Price Array
+// [567.50,345.40,767.45,567.60,600,400,230,450,350.50,560.40,800.56,890.9]
+
+   const bookPrice=[567.50,345.40,767.45,567.60,600,400,230,450,350.50,560.40,800.56,890.9];
+// 1. Find all prices less than 500
+const priceLessThen500=bookPrice.filter(val=>val<500);
+console.log("1.Price less then 500 :"+ priceLessThen500);
+
+// 2. Find the first price greater than 600
+
+const firstPriceGreaterThen600=bookPrice.find(val=>val>600);
+console.log("2. First price greater than 600 :"+firstPriceGreaterThen600);
+
+// 3. Find all prices between 500 and 600
+const priceBetween500And600=bookPrice.filter(val=>val>=500 && val<=600);
+console.log("3. Price between 500 and 600 :"+ priceBetween500And600);
+// 4. Display sum of all prices
+
+const sumOfAllPrices=bookPrice.reduce((total,num)=>total+num);
+console.log("4.Sum of all prices :"+sumOfAllPrices);
+// 5. Display sum of all prices but initial value of sum should be 100
+
+const sumOfAllPricesInitalValueOfSumIs100=bookPrice.reduce((sum,num)=>sum+num,100);
+console.log("5.Sum of all pricesbut initial value of sum should be 100 : "+sumOfAllPricesInitalValueOfSumIs100);
+// 6. Double every price from array and display new prices
+const DoublePrice=bookPrice.map((val)=>val*2);
+console.log("6.Double every price from array and display new prices:"+DoublePrice);
+// 7. Display sum of prices which are less than 500
+const SumOfPricesLessThan500=(bookPrice.reduce((sum,num)=>num<500?sum+num:sum,0))
+console.log('7.Display sum of prices which are less than 500 :'+SumOfPricesLessThan500);
+
+
+
+console.log("=================================================")
+
+// Consider following Book Names Array
+// ['Learn Java','Basics of Python','Advanced java Concepts','Web Basics', 'Easy learnng Python', 'Web Fundamentals', 'JAVA fundamentals']
+const bookName=['Learn Java','Basics of Python','Advanced java Concepts','Web Basics', 'Easy learnng Python', 'Web Fundamentals', 'JAVA fundamentals'];
+
+// 1. Find all books starting with 'Web'  : ['Web Basics','Web Fundamentals']
+const bookStartingWithWeb=bookName.filter(name=>name.startsWith('Web'));
+console.log("1. All books starting with 'Web':"+bookStartingWithWeb);
+// 2. Find all books which are related to Java :['Learn Java', 'Advanced java Concepts','JAVA fundamentals']
+const booksRelatedToJava = bookName.filter(name => name.toLowerCase().match('java'));
+console.log("2. All books which are related to Java: " + booksRelatedToJava);
+
+// 3. Prepend 'Neo-' to every Book Name and Display new book name
+const AddNeotoBookNames = bookName.map(name => 'Neo-' + name);
+console.log('3.Neo- to every Book Name and Display new book name :'+AddNeotoBookNames);
+
+// 4. Display sum of length of every bookname
+const sumOfLength=bookName.map(val=>val.length).reduce((a,b)=>a+b)
+console.log("4.Display sum of length of every bookname:"+sumOfLength);
+
+    </script>
+</body>
+</html>
