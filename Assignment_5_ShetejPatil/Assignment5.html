@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    class Book{
+        #bookId='';
+        #bookName='';
+        #bookAuthor='';
+        #bookPrice='';
+        constructor(bookId,bookName,bookAuthor, bookPrice){
+            this.#bookId=bookId;
+            this.#bookName=bookName;
+            this.#bookAuthor=bookAuthor;
+            this.#bookPrice=bookPrice;
+        }
+        bookDetails(){
+            console.log(`Book id :${this.#bookId}, Book Name:${this.#bookName},Book Author: ${this.#bookAuthor},Book Price:${this.#bookPrice} `)
+        }
+        get bookId() {
+    return this.#bookId;
+  }
+
+  set bookId(bookId) {
+    this.#bookId = bookId;
+  }
+
+  get bookName() {
+    return this.#bookName;
+  }
+
+  set bookName(bookName) {
+    this.#bookName = bookName;
+  }
+
+  get bookAuthor() {
+    return this.#bookAuthor;
+  }
+
+  set bookAuthor(bookAuthor) {
+    this.#bookAuthor = bookAuthor;
+  }
+
+  get bookPrice() {
+    return this.#bookPrice;
+  }
+
+  set bookPrice(bookPrice) {
+    this.#bookPrice = bookPrice;
+  }
+
+    }
+   
+    let obj1=new Book(101,"Java One Piece",'Eiichiro Oda',1500);  
+    let obj2=new Book(102,"One Punch",'Kshitij',150);
+    let obj3=new Book(103,"Madara Uchiha",'mNarutoa',499);
+    let obj4=new Book(104,'man with golden hand java','MNikhil',1000);
+    let obj5=new Book(105,"Black  Java cLOVER",'Rohan',200);
+   const books=[obj1,obj2,obj3,obj4,obj5];
+
+//    Implement following using forEach, find, filter, map, reduce
+// 1. Iterate Book array using forEach
+
+
+   books.forEach((book) => {
+       book.bookDetails();
+      });
+
+      // 2. Find all books having price less than 500
+      const booksPriceLessThen500 = books.filter((book) => book.bookPrice < 500);
+       console.log("\n2. Books with price less than 500:");
+     booksPriceLessThen500.forEach((book) => {
+      console.log(book.bookDetails());
+      });
+
+
+// 3. Find first book having price greater than 600
+const firstBook = books.find((book) => book.bookPrice > 600);
+console.log("\nFirst book with price greater than 600:");
+console.log(firstBook.bookDetails());
+
+
+// 4. Find all Java related books
+const javaBooks = books.filter((book) => book.bookName.toLowerCase().includes("java"));
+console.log("\nJava related books:");
+javaBooks.forEach((book) => {
+  console.log(book.bookDetails());
+});
+// // 5. Make sum of all Book Prices
+
+const totalBookPrice = books.reduce((total, book) => total + book.bookPrice,0);
+console.log("\nTotal Book Price: " + totalBookPrice.toString());
+
+// 6. Store Book Author of every book in seperate array
+const bookAuthors = books.map((book) => book.bookAuthor);
+console.log("\n Authors:", bookAuthors);
+
+
+// 7. Display Books having Author name starting with M/m
+const mAuthors = books.filter((book) =>book.bookAuthor.toLowerCase().startsWith("m"));
+mAuthors.forEach((book)=>console.log(book.bookId,book.bookName,book.bookAuthor,book.bookPrice));
+
+    </script>
+</body>
+</html>
